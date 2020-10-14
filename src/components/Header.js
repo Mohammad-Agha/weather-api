@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function Header() {
-    return (
-        <header>
-            <div className="form-group">
-                <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Type in a city name" />
-                <button className="btn">FIND WEATHER</button>
-            </div>
-        </header>
-    )
+class Header extends Component {
+    render() {
+        return (
+            <header>
+                <div className="form-group">
+                    <input
+                        onChange={this.props.handleChange}
+                        type="text"
+                        value={this.props.value}
+                        className="form-control"
+                        placeholder="Type in a city name" />
+                    <button onClick={this.props.handler} className="btn">FIND WEATHER</button>
+                </div>
+            </header >
+        )
+    }
 }
+
+export default Header
