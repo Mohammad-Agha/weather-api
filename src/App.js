@@ -50,7 +50,8 @@ class App extends Component {
       .catch(error => {
         this.setState({
           buttonClicked: true,
-          error: true
+          error: true,
+          loading: false
         })
       })
   }

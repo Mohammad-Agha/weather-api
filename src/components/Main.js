@@ -4,13 +4,14 @@ import MainWeather from './MainWeather';
 import Loading from '../img/loading.gif'
 export default function Main(props) {
     if (props.buttonClicked) {
+        if (props.loading) {
+            return <main><img src={Loading} alt="Loading" /></main>
+        }
+
         if (props.error) {
             return <main>City was not found</main>
         }
 
-        if (props.loading) {
-            return <main><img src={Loading} alt="Loading" /></main>
-        }
         else {
             let res = []
             props.weathers.forEach(item => {
