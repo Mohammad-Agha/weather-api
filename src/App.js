@@ -9,7 +9,7 @@ class App extends Component {
     super()
     this.state = {
       API_KEY: "918a8fc70207cf31089bbb64fdb14370",
-      value: "Beirut",
+      value: "",
       buttonClicked: false,
       loading: false,
       weathers: [],
