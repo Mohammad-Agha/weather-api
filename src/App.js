@@ -16,22 +16,16 @@ class App extends Component {
       error: false
     }
     this.handler = this.handler.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-
   }
 
-  handleChange(event) {
-    this.setState({
-      value: event.target.value
-    })
-  }
-
-  handler() {
+  handler(value) {
+    console.log(value)
     this.setState({
       buttonClicked: true,
-      loading: true
+      loading: true,
+      value
     });
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${this.state.value}&cnt=8&units=metric&appid=${this.state.API_KEY}`)
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${value}&cnt=8&units=metric&appid=${this.state.API_KEY}`)
       .then(response => {
         if (response.status >= 200 && response.status <= 299) {
           return response.json();
@@ -59,7 +53,7 @@ class App extends Component {
   render() {
     return (
       <div className="main-div">
-        <Header value={this.state.value} handleChange={this.handleChange} handler={this.handler} />
+        <Header handler={this.handler} />
         <Main
           loading={this.state.loading}
           buttonClicked={this.state.buttonClicked}
