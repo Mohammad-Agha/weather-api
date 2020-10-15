@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   handler(value) {
-    console.log(value)
     this.setState({
       buttonClicked: true,
       loading: true,
