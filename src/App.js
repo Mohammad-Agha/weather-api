@@ -3,12 +3,14 @@ import Header from "./components/Header"
 import Main from "./components/Main"
 import './App.css'
 
+require('dotenv').config();
+console.log(process.env)
+
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      API_KEY: "918a8fc70207cf31089bbb64fdb14370",
       value: "",
       buttonClicked: false,
       loading: false,
@@ -24,7 +26,7 @@ class App extends Component {
       loading: true,
       value
     });
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${value}&cnt=8&units=metric&appid=${this.state.API_KEY}`)
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${value}&cnt=8&units=metric&appid=${process.env.REACT_APP_API_KEY}`)
       .then(response => {
         if (response.status >= 200 && response.status <= 299) {
           return response.json();
