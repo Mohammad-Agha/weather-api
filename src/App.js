@@ -3,10 +3,6 @@ import Header from "./components/Header"
 import Main from "./components/Main"
 import './App.css'
 
-require('dotenv').config();
-console.log(process.env)
-
-
 class App extends Component {
   constructor() {
     super()
